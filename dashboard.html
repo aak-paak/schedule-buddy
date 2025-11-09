@@ -1,0 +1,55 @@
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule Buddy | Dashboard</title>
+  <link rel="stylesheet" href="./assets/styles/main.css">
+  <style>
+    .upload-box {
+      background: rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-top: 1rem;
+    }
+    .results {
+      margin-top: 1rem;
+      text-align: left;
+      background: rgba(255,255,255,0.1);
+      border-radius: .5rem;
+      padding: 1rem;
+      font-size: .9rem;
+      white-space: pre-wrap;
+    }
+    .match-card {
+      background: rgba(255,255,255,0.15);
+      border-radius: .5rem;
+      padding: 1rem;
+      margin-top: .5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="logo">Schedule Buddy</h1>
+    <p>Upload your class schedule screenshot below 👇</p>
+
+    <div class="upload-box">
+      <input type="file" id="schedule-image" accept="image/*">
+      <button id="read-btn">Read Schedule</button>
+      <p id="status"></p>
+    </div>
+
+    <div class="results" id="result-text"></div>
+
+    <h2 style="margin-top:1.5rem;">Your Matches</h2>
+    <div id="matches"></div>
+  </div>
+
+  <!-- Firebase and scripts -->
+  <script type="module" src="./scripts/firebase-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script type="module" src="./scripts/dashboard.js"></script>
+</body>
+</html>
