@@ -19,28 +19,38 @@ const editPronouns = document.getElementById("edit-pronouns");
 const editBio = document.getElementById("edit-bio");
 
 // ✅ Load user profile
-// Load user data
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
+    console.warn("⚠️ No logged-in user found, redirecting...");
     window.location.href = "index.html";
     return;
   }
 
+  console.log("👤 Logged-in user UID:", user.uid);
+
   try {
-    const userRef = doc(db, "users", user.uid);  // ✅ correct
+    const userRef = doc(db, "users", user.uid);
+    console.log("📂 Firestore path:", userRef.path);
+
     const userSnap = await getDoc(userRef);
+    console.log("📄 Document exists?", userSnap.exists());
 
     if (userSnap.exists()) {
       const data = userSnap.data();
+      console.log("✅ Loaded data:", data);
+
       document.getElementById("profile-name").textContent = data.name || "Unknown";
       document.getElementById("profile-major").textContent = data.major || "Undeclared";
       document.getElementById("profile-pronouns").textContent = data.pronouns || "Not specified";
       document.getElementById("profile-bio").textContent = data.bio || "No bio yet.";
+    } else {
+      console.warn("⚠️ No user document found in Firestore.");
     }
   } catch (err) {
-    console.error("Error loading profile:", err);
+    console.error("❌ Error loading profile:", err.message);
   }
 });
+
 
 
 // ✏️ Edit Profile

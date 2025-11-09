@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
 </head>
 <body>
 
-  <!-- ================= SIDEBAR ================= -->
+  <!-- ================= SIDEBAR ================= 
   <div id="sidebar" class="sidebar">
     <div class="sidebar-header">
       <h2>Menu</h2>
@@ -22,7 +23,7 @@
     </ul>
   </div>
 
-  <!-- ================= MAIN CONTENT ================= -->
+  <!-- ================= MAIN CONTENT ================= 
   <div class="main-content">
     <header class="top-header">
       <button id="openSidebar" class="menu-btn">☰ Menu</button>
@@ -37,16 +38,70 @@
       </div>
       <p id="status" style="margin-top:10px; color: #fff;">Status messages will appear here</p>
 
-      <!-- Optional: where extracted text or matches appear -->
+      <!-- Optional: where extracted text or matches appear 
       <div id="result"></div>
       <div id="matches"></div>
     </section>
   </div>
 
-  <!-- Firebase and scripts -->
-<script type="module" src="./scripts/firebase-config.js"></script>
-<script type="module" src="./scripts/dashboard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 
+  <!-- Firebase and scripts 
+  <script type="module" src="./scripts/firebase-config.js"></script>
+  <script type="module" src="./scripts/dashboard.js"></script>
+
+</body>
+</html>>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule Buddy | Dashboard</title>
+  <link rel="stylesheet" href="./assets/styles/dashboard.css" />
+</head>
+<body>
+  <!-- ============= SIDEBAR ============== -->
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>Menu</h2>
+      <button id="closeSidebar">&times;</button>
+    </div>
+    <ul class="sidebar-links">
+      <li><a href="#" id="profile-link">🧑‍🎓 Profile</a></li>
+      <li><a href="#" id="friends-link">🤝 Friends</a></li>
+      <li><a href="#" id="editbio-link">✍️ Edit Bio</a></li>
+      <li><a href="#" id="logout-btn">🚪 Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- ============= MAIN CONTENT ============== -->
+  <div class="main-content">
+    <header class="top-header">
+      <button id="openSidebar" class="menu-btn">☰ Menu</button>
+      <h1>ClasSync Dashboard</h1>
+    </header>
+
+    <section id="schedule-upload">
+      <h2>Upload Your Schedule 📅</h2>
+      <div class="upload-box">
+        <input type="file" id="schedule-file" accept="image/*" />
+        <button id="readSchedule">Read Schedule</button>
+      </div>
+      <p id="status"> </p>
+      <p id="result"> </p>
+      <div id="matches"></div>
+    </section>
+  </div>
+  <footer class="site-footer" style="text-align:center; margin:16px 0;">
+    <p><a href="https://forms.cloud.microsoft/r/YWaJMtrfQL" target="_blank" rel="noopener noreferrer">Support</a></p>
+  </footer>
+
+  <!-- ============= SCRIPTS ============== -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script type="module" src="./scripts/firebase-config.js"></script>
+  <script type="module" src="./scripts/dashboard.js"></script>
 </body>
 </html>
 
